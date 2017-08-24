@@ -19,7 +19,6 @@ public class YandexPage extends AbstractYandexPage {
     @FindBy(css = "div.home-arrow")
     public Menu tabs;
 
-
     @Override
     public YandexPage open() {
         super.open();

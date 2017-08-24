@@ -11,8 +11,6 @@ public class SberTechTest extends BaseTest {
 
     @Test
     public void test() {
-
-
             new YandexPage(driver).open()
                     .tabs.goToItem("Маркет");
             new MarketPage(driver)
