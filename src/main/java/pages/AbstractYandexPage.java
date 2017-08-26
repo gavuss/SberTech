@@ -1,8 +1,15 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Step;
 import ru.yandex.qatools.htmlelements.loader.HtmlElementLoader;
+
+import java.util.function.BooleanSupplier;
+import java.util.function.Function;
 
 /**
  * Created by Alexander Silaev on 23.08.2017.
@@ -41,5 +48,29 @@ public abstract class AbstractYandexPage {
         }
         driver.get(url);
         return this;
+    }
+
+
+    public void waitUntilIsDisplayed(Function<WebDriver, Boolean>... conditions) {
+
+        Wait<WebDriver> wait = new WebDriverWait(driver, 5);
+
+//        wait.until(new Function<WebDriver, Boolean>() {
+//            @Override
+//            public Boolean apply(WebDriver webDriver) {
+//                return isLoaded();
+//            }
+//        });
+        wait.until(driver -> isLoaded()); //
+
+        for(Function<WebDriver, Boolean> condition: conditions) {
+            wait.until(booleanSupplier -> condition.apply(driver));
+        }
+
+    }
+
+    public boolean isLoaded() {
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        return "complete".equals(jsExecutor.executeScript("return document.readyState"));
     }
 }

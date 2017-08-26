@@ -1,2 +1,8 @@
 .idea
 target
+*.iml
+/.idea/workspace.xml
+/.idea/libraries
+/build
+/captures
+.externalNativeBuild
