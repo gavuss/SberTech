@@ -14,10 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     public static WebDriver driver;
-    public static WebDriverWait wait;
-    public static WebDriverWait smallWait;
-    public int explicitWaitTime = 60;
-    public int smallExplicitWaitTime = 20;
+    public static final long WEBDRIVER_TIMEOUT = Long.parseLong(System.getProperty("webdriver.timeout", "20"));
 
     @Before
     public void setUp() {

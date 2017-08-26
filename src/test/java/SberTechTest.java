@@ -5,8 +5,6 @@ import pages.market.MarketPage;
 import pages.search.YandexPage;
 import utils.BaseTest;
 
-import java.util.function.BooleanSupplier;
-
 /**
  * Created by Alexander Silaev on 23.08.2017.
  */
@@ -16,7 +14,7 @@ public class SberTechTest extends BaseTest {
     public void test() {
         YandexPage mainPage = new YandexPage(driver).open();
 
-        mainPage.waitUntilIsDisplayed(((driver) -> driver.findElement(By.id("ыфоваолы")).isDisplayed()));
+        mainPage.waitUntilIsDisplayed();
 
         mainPage.tabs.goToItem("Маркет");
 

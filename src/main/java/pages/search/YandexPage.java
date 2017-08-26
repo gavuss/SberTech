@@ -1,6 +1,8 @@
 package pages.search;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.AbstractYandexPage;
 import pages.elements.Menu;
@@ -11,6 +13,10 @@ import pages.elements.Menu;
 //div.home-arrow
 public class YandexPage extends AbstractYandexPage {
 
+    @Override
+    public WebElement logo() {
+        return getDriver().findElement(By.cssSelector(".home-logo"));
+    }
 
     public YandexPage(WebDriver driver) {
         super(driver, "https://yandex.ru");
@@ -30,5 +36,7 @@ public class YandexPage extends AbstractYandexPage {
         super.openByUrl(url);
         return this;
     }
+
+
 }
 
