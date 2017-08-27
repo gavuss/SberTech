@@ -14,11 +14,6 @@ import java.util.List;
  */
 public class CatalogPage extends AbstractYandexPage {
 
-    @Override
-    public WebElement logo() {
-        return getDriver().findElement(By.cssSelector(".home-logo"));
-    }
-
     public CatalogPage(WebDriver driver) {
         super(driver);
     }

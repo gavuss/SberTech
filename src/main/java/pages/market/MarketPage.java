@@ -12,11 +12,6 @@ import pages.elements.Menu;
  */
 public class MarketPage extends AbstractYandexPage {
 
-    @Override
-    public WebElement logo() {
-        return getDriver().findElement(By.cssSelector(".home-logo"));
-    }
-
     public MarketPage(WebDriver driver) {
         super(driver);
     }
